@@ -3,3 +3,4 @@ dbgen
 qgen
 *.tbl
 data/dists.dss
+.vscode
