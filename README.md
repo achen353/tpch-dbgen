@@ -1,33 +1,46 @@
-## QCSShiftGen: Generate TPC-H Workload with QCS Distribution Shift
+# QCSShiftGen: Generate TPC-H Workload with QCS Distribution Shift
 
+This the secondary repository of the *Workload-Aware Adaptive Sample Update for AQP* project for CS 8803 MDS (Fall 2022) at Georgia Tech, containing the code for generating TPC-H workloads with QCS distribution shifts for the proposed online experiments. To learn more about the project, see the primary repository [here](https://github.com/qdntang/verdictdb).
 
+We build upon the [TPC-H benchmark](http://www.tpc.org/tpch/) to generate a query workload with hard or gradual shifts. 
 
-1. Build and copy `./qgen` into `./queries`
-```
-make -f makefile.suite
-cp ./qgen ./queries/
-```
+## How to Run
+
+1. Build and copy `./qgen` into `./queries` with the following commands:
+	```
+	$ make -f makefile.suite
+	$ cp ./qgen ./queries/
+	```
+
 2. Generate the workload using `workload_generator.py`
-```
-# Generate workload with hard shift
-python workload_generator.py -s 1000 -t 4 -i -y hard -o hard_workload.sql
+	1. To generate a workload with hard shifts, run:
+		```
+		$ python workload_generator.py -s 1000 -t 4 -i -y hard -o hard_workload.sql
+		```
+	2. To generate a workload with gradual shifts, run: 
+		```
+		$ python workload_generator.py -s 1000 -t 20 -a 0.01 -p 0.2 -i -y soft -o soft_workload.sql
+		```
 
-# Generate workload with gradual shift 
-python workload_generator.py -s 1000 -t 20 -a 0.01 -p 0.2 -i -y soft -o soft_workload.sql
-```
-See `python workload_generator.py --help` for more information on argument usage.
+	Run `python workload_generator.py --help` for more information on argument usage.
 
-3. Feel free to explore the QCS distribution on the generated workload with `workload_explorer.ipynb`!
+3. Feel free to explore the QCS distribution on the generated workload with [`workload_explorer.ipynb`](workload_explorer.ipynb)!
 
-**Hard shift**
+## Example Results
+
+### Hard Shift
 ![Hard Shift](assets/hard_shift.gif)
 
-**Gradual shift**
+### Gradual Shift
 ![Gradual Shift](assets/gradual_shift.gif)
-## TPC-H Readme
 
-Update [11/10/2022]: Updated files to v3.0.1.
+# Original TPC-H README
+
+This section contains the original TPC-H README file.
+
 ```
+Update [11/10/2022]: Updated files to v3.0.1.
+
 Table of Contents
 ===================
  0. What is this document?
