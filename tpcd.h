@@ -112,6 +112,24 @@
 #define SET_DBASE       ".LOGON %s\n"
 #endif
 
+#ifdef MYSQL
+#define GEN_QUERY_PLAN ""
+#define START_TRAN "START TRANSACTION"
+#define END_TRAN "COMMIT"
+#define SET_OUTPUT ""
+#define SET_ROWCOUNT "limit %d;\n"
+#define SET_DBASE "use %s;\n"
+#endif
+
+#ifdef POSTGRESQL
+#define GEN_QUERY_PLAN  "explain"
+#define START_TRAN      "start transaction"
+#define END_TRAN        "commit;"
+#define SET_OUTPUT      ""
+#define SET_ROWCOUNT    "limit %d;\n"
+#define SET_DBASE       ""
+#endif /* POSTGRESQL */
+
 #define MAX_VARS      8 /* max number of host vars in any query */
 #define QLEN_MAX   2048 /* max length of any query */
 #define QUERIES_PER_SET 22
