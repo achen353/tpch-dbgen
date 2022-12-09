@@ -1,5 +1,3 @@
-# @(#)README	2.4.0
-
 ## QCSShiftGen: Generate TPC-H Workload with QCS Distribution Shift
 
 
@@ -29,7 +27,7 @@ See `python workload_generator.py --help` for more information on argument usage
 ## TPC-H Readme
 
 Update [11/10/2022]: Updated files to v3.0.1.
-
+```
 Table of Contents
 ===================
  0. What is this document?
@@ -463,4 +461,4 @@ following version usage rules:
     POWER5 		AIX 64-bit (5.3)			  C for AIX Compiler, v7  -q64 (no -g)
     IA-64		HPUX 64-bit ()		icc 		
     Linux 32-bit ()	gcc			
-
+```
